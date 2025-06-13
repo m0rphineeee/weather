@@ -1,4 +1,9 @@
-const app = document.createElement('div')
-app.innerHTML = '<h1>¡Hola Mundo!</h1>'
+import { getWeatherData  } from "./data"
+import { renderWeatherData } from "./ui"
+import "./style.css"
 
-document.body.appendChild(app)
+async function main() {
+    const {currentData, extendedForecast} = await getWeatherData()
+    renderWeatherData(currentData, extendedForecast)
+}
+main()
